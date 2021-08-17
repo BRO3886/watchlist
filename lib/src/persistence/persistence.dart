@@ -34,4 +34,9 @@ class UserDAO {
     final u = box.get(userKey);
     return u?.isSignedIn ?? false;
   }
+
+  String? getPhoto() {
+    final u = box.get(userKey);
+    return u?.photoURL;
+  }
 }

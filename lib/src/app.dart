@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watchlist/src/navigation/router.gr.dart';
 import 'package:watchlist/src/persistence/persistence.dart';
 import 'package:watchlist/src/presentation/bloc/auth/auth_bloc.dart';
+import 'package:watchlist/src/presentation/theme/theme.dart';
 
 import 'di/di.dart';
 
@@ -19,6 +21,15 @@ class _WatchListState extends State<WatchList> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: Brightness.dark,
+
+      ),
+    );
     _appRouter = AppRouter();
     _userDAO = getIt<UserDAO>();
     _isSignedIn = _userDAO.isSignedIn();
@@ -37,6 +48,7 @@ class _WatchListState extends State<WatchList> {
         BlocProvider(create: (context) => AuthBloc()),
       ],
       child: MaterialApp.router(
+        theme: lightThemeData,
         routeInformationParser: _appRouter.defaultRouteParser(includePrefixMatches: true),
         routerDelegate: _appRouter.delegate(
           initialRoutes: [
