@@ -1,0 +1,10 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    avoid_positional_boolean_parameters: false
+    prefer_if_elements_to_conditional_expressions: false
+    constant_identifier_names: false
+    sized_box_for_whitespace: false
