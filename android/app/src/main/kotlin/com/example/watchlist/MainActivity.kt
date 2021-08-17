@@ -1,4 +1,4 @@
-package com.example.watchlist
+package dev.sidv.watchlist
 
 import io.flutter.embedding.android.FlutterActivity
 
