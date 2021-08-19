@@ -15,6 +15,7 @@ import '../persistence/persistence.dart'
 _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
+  gh.lazySingleton<_i3.MovieDAO>(() => _i3.MovieDAO());
   gh.lazySingleton<_i3.UserDAO>(() => _i3.UserDAO());
   return get;
 }

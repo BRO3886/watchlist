@@ -61,8 +61,8 @@ class AuthScreen extends StatelessWidget {
                   return Container(
                     height: 16,
                     width: 16,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(brownOnYellow),
+                    child: const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   );
                 }
@@ -70,7 +70,7 @@ class AuthScreen extends StatelessWidget {
                   'Login With Google'.toUpperCase(),
                   style: Theme.of(context).textTheme.button!.copyWith(
                         fontWeight: FontWeight.w600,
-                        color: brownOnYellow,
+                        color: Colors.white,
                       ),
                 );
               },

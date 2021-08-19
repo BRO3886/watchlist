@@ -4,8 +4,8 @@ part 'constants.dart';
 
 final lightThemeData = ThemeData(
   fontFamily: 'Montserrat',
-  primaryColor: darkYellow,
-  accentColor: lightYellow,
+  primaryColor: darkGreen,
+  accentColor: darkGreen,
   canvasColor: Colors.white,
   pageTransitionsTheme: const PageTransitionsTheme(builders: {
     TargetPlatform.android: ZoomPageTransitionsBuilder(),
@@ -17,23 +17,23 @@ final lightThemeData = ThemeData(
     elevation: 0,
   ),
   indicatorColor: darkBlue,
-  buttonColor: darkYellow,
+  buttonColor: darkGreen,
   textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all(darkYellow),
-      overlayColor: MaterialStateProperty.all(lightYellow),
+      foregroundColor: MaterialStateProperty.all(darkGreen),
+      overlayColor: MaterialStateProperty.all(Colors.green.shade100),
     ),
   ),
   buttonTheme: ButtonThemeData(
     disabledColor: Colors.grey[200],
     shape: const StadiumBorder(),
-    buttonColor: darkYellow,
+    buttonColor: darkGreen,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
       shape: const StadiumBorder(),
-      primary: darkYellow,
+      primary: darkGreen,
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -64,7 +64,7 @@ const TextStyle headingText = TextStyle(
   fontFamily: 'Montserrat',
   fontSize: 28,
   fontWeight: FontWeight.bold,
-  color: Colors.black,
+  color: darkBlue,
 );
 
 const TextStyle subtitleText = TextStyle(
