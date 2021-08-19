@@ -21,6 +21,7 @@ flutter run
 * To run this app you need to have a firebase project. Create one first and add the `google-services.json` file to the required folder.
 
 * List of Dependencies given below:
+
 | Parameter | Description                       |
 | :-------- | :-------------------------------- |
 | `auto_route`| Routing |
