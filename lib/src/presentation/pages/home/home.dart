@@ -274,7 +274,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 imgPath: _savedFilePath,
                               );
                               await _movieDAO.box.add(m);
-                              print('done');
+                              _savedFileName='';
+                              _savedFilePath='';
                               context.router.pop();
                             }
                           },

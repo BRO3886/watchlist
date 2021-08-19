@@ -22,17 +22,8 @@ class MovieTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dismissible(
       key: Key(movie.id!),
-      onDismissed: (direction) async {
-        switch (direction) {
-          case DismissDirection.startToEnd:
-            await deleteMovie();
-            ScaffoldMessenger.of(context).showSnackBar(
-              successSnackbar('Deleted: ${movie.title}'),
-            );
-            break;
-          default:
-            return;
-        }
+      onDismissed: (direction) {
+        deleteMovie(context);
       },
       direction: DismissDirection.startToEnd,
       background: Container(
@@ -40,14 +31,12 @@ class MovieTile extends StatelessWidget {
         child: Row(
           children: const [
             Icon(Icons.delete),
-            Spacer(),
-            Icon(Icons.delete),
           ],
         ),
       ),
       confirmDismiss: (direction) {
         switch (direction) {
-          case DismissDirection.endToStart:
+          case DismissDirection.startToEnd:
             return showDialog<bool>(
               context: context,
               builder: (context) => AlertDialog(
@@ -69,7 +58,7 @@ class MovieTile extends StatelessWidget {
                 ],
               ),
             );
-          case DismissDirection.startToEnd:
+          case DismissDirection.endToStart:
           default:
             return Future.value(false);
         }
@@ -167,7 +156,10 @@ class MovieTile extends StatelessWidget {
     );
   }
 
-  Future<void> deleteMovie() {
-    return _movieDAO.box.deleteAt(index);
+  void deleteMovie(BuildContext context) {
+    _movieDAO.box.deleteAt(index);
+    ScaffoldMessenger.of(context).showSnackBar(
+      successSnackbar('Deleted: ${movie.title ?? ''}'),
+    );
   }
 }
